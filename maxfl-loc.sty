@@ -14,14 +14,13 @@
   \defaultfontfeatures{Ligatures=TeX}
 
   \RequirePackage[babelshorthands]{polyglossia}
+  \RequirePackage{newcomputermodern}
 
   \if@maxfl@rus
-    \RequirePackage{computermodern}
     \setmainlanguage{russian}
     \setotherlanguage{english}
   \else
     \if@maxfl@engrus
-      \RequirePackage{computermodern}
       \setmainlanguage{english}
       \setotherlanguage{russian}
     \else
@@ -46,7 +45,11 @@
   \if@maxfl@rus
     \RequirePackage[main=russian,english]{babel}
   \else
-    \RequirePackage[english]{babel}
+    \if@maxfl@engrus
+      \RequirePackage[main=english,russian]{babel}
+    \else
+      \RequirePackage[english]{babel}
+    \fi
   \fi
 \fi
 
